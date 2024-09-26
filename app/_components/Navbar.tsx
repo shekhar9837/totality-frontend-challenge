@@ -5,7 +5,8 @@ import { User } from '@clerk/nextjs/server'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect } from 'react'
-import { Button } from '../ui/button'
+import { Plus } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 export const Navbar = () => {
   const {user, isSignedIn} = useUser()
@@ -33,10 +34,12 @@ export const Navbar = () => {
 
          
           <div className="flex items-center justify-center space-x-4 ">
+            <Link href={'/add-new-listing'}>
             <Button>
-              Add Your Ad
+             <Plus className='w-4 h-4'/> Add Your Ad
             </Button>
 
+            </Link>
             {
               isSignedIn? (
                 <div>

@@ -1,7 +1,8 @@
 import { HomePage } from "@/components/HomePage/HomePage";
-import { Navbar } from "@/components/navbar/Navbar";
 import PropertyCard from "@/components/propertyCard/PropertyCard";
 import Image from "next/image";
+import Properties from "./_components/properties";
+import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -9,40 +10,9 @@ export default function Home() {
    
    <HomePage/>
 
-    <div className="grid grid-cols-3 items-center ">
-
-
-   <PropertyCard 
-        title="Luxurious Beachfront Villa"
-        description="Experience the ultimate in coastal living with this stunning beachfront villa."
-        price={1500000}
-        imageUrl="/images/test.jpeg"
-      />
-   <PropertyCard 
-        title="Luxurious Beachfront Villa"
-        description="Experience the ultimate in coastal living with this stunning beachfront villa."
-        price={1500000}
-        imageUrl="/images/test.jpeg"
-      />
-   <PropertyCard 
-        title="Luxurious Beachfront Villa"
-        description="Experience the ultimate in coastal living with this stunning beachfront villa."
-        price={1500000}
-        imageUrl="/images/test.jpeg"
-      />
-   <PropertyCard 
-        title="Luxurious Beachfront Villa"
-        description="Experience the ultimate in coastal living with this stunning beachfront villa."
-        price={1500000}
-        imageUrl="/images/test.jpeg"
-      />
-   <PropertyCard 
-        title="Luxurious Beachfront Villa"
-        description="Experience the ultimate in coastal living with this stunning beachfront villa."
-        price={1500000}
-        imageUrl="/images/test.jpeg"
-      />
-          </div>
+        <Properties/>
+      
+      <Footer />
     </div>
   );
 }

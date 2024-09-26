@@ -10,7 +10,6 @@ export interface IProperty extends Document {
   images: string[];
 }
 
-// Create the Property schema
 const PropertySchema: Schema = new Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
