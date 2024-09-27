@@ -11,14 +11,13 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { CartContext } from "@/context/CartContext";
 import toast from "react-hot-toast";
-import Footer from "@/components/Footer/Footer";
 
 
 const Page = ({ params }: { params: { id: string } }) => {
   // const {user} = useUser()
   // console.log(user)
 
-  const router = useRouter()
+  // const router = useRouter()
   const [property, setProperty] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [cartItem, setCartItem] = useState([])

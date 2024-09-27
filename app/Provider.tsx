@@ -1,7 +1,6 @@
 import Footer from "@/components/Footer/Footer";
 import { Navbar } from "./_components/Navbar";
 import CartProvider from "@/context/CartContext";
-import Properties from "./_components/properties";
 
 
 function Provider ( {children}:any){
