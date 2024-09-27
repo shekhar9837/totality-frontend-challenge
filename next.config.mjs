@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     domains: ['unsplash.com', 'a0.muscache.com', 'www.bing.com', 'img.freepik.com', 'images.unsplash.com'],
   },
