@@ -7,12 +7,25 @@ import axios from "axios";
 import Image from "next/image";
 
 import { Bath, BedSingle } from "lucide-react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { CartContext } from "@/context/CartContext";
 import toast from "react-hot-toast";
 
 
+
+type Property = {
+  _id: string;
+  title: string;
+  description: string;
+  location: string;
+  price: number;
+  bedrooms: number;
+  amenities: string[];
+  images: string[];
+};
+
+
+        //@ts-ignore
 const Page = ({ params }: { params: { id: string } }) => {
   // const {user} = useUser()
   // console.log(user)
@@ -30,7 +43,8 @@ const Page = ({ params }: { params: { id: string } }) => {
       try {
         const res = await axios.get("/api/get-properties");
         const data = await res.data;
-        const filtered = await data.filter((data:any) => data._id === params.id);
+        //@ts-ignore
+        const filtered = await data.filter((data) => data._id === params.id);
         console.log(filtered);
         setProperty(filtered);
         setCartItem(filtered);
@@ -68,7 +82,7 @@ const Page = ({ params }: { params: { id: string } }) => {
     <>
     <div className="container  md:px-4 mx-12 flex flex-col items-center bg-zinc-200 rounded-lg">
       <div className="p-4 ">
-      {property.map((property:any)=> <div key={property._id}>
+      {property.map((property:Property)=> <div key={property._id}>
       <div className="flex flex-col justify-center md:flex-row md:space-x-6 ">
         
         <div className="md:w-1/2 ">
