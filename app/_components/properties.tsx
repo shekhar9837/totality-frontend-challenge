@@ -57,11 +57,11 @@ export default function Properties() {
   </div>) 
 
   return (
-    <div className=" w-full flex items-center flex-col  p-12">
-      <header className="flex w-[70%] items-center justify-center flex-col text-center leading-none my-12">
+    <div className=" w-full flex items-center  flex-col  md:p-12">
+      <header className="flex md:w-[70%] md:items-center items-start justify-center flex-col text-center leading-none my-12">
 
-      <h1 className="text-[2rem] font-extrabold mb-2">Explore exclusive spaces</h1>
-      <p className="text-[0.9rem] text-gray-500 font-medium">
+      <h1 className="text-[2rem] font-extrabold mb-2 md:text-center text-start">Explore exclusive places</h1>
+      <p className="text-[0.9rem] text-gray-500 font-medium md:text-center text-start">
       Find your perfect property for rent! Whether you're looking for a cozy cabin in the woods, a luxurious villa with a pool, or anything in between, Totallity Rentals has you covered. Start your search today!
       </p>
       </header>

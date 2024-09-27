@@ -2,18 +2,32 @@
 
 'use client'
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import { use } from "react";
-import { Bath } from "lucide-react";
+import { Bath, BedSingle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Property } from "@/models/Property";
+import { CartContext } from "@/context/CartContext";
+import toast from "react-hot-toast";
+import Footer from "@/components/Footer/Footer";
 
 
 const Page = ({ params }: { params: { id: string } }) => {
+  // const {user} = useUser()
+  // console.log(user)
 
+  const router = useRouter()
   const [property, setProperty] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [cartItem, setCartItem] = useState([])
+  const [added, setaddedflag] = useState(false);
+  const { addToCart} = useContext(CartContext);
+
 
   useEffect(() => {
     // Fetch properties from the API
@@ -24,6 +38,7 @@ const Page = ({ params }: { params: { id: string } }) => {
         const filtered = await data.filter((data:any) => data._id === params.id);
         console.log(filtered);
         setProperty(filtered);
+        setCartItem(filtered);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching properties:", error);
@@ -32,6 +47,20 @@ const Page = ({ params }: { params: { id: string } }) => {
     };
     fetchProperties();
   }, []);
+
+
+  const handleAddToCart = () => {
+    if (cartItem.length > 0) {
+      addToCart(cartItem[0]);  // Assuming `cartItem` is an array and you want to add the first property
+      toast("Item added to cart");
+      setaddedflag(true);  // Optional: set a flag to show feedback
+    }
+  };
+  
+
+  
+  
+ 
   
 
   if (loading) return (
@@ -42,7 +71,9 @@ const Page = ({ params }: { params: { id: string } }) => {
   if (!property) return <p>No property found.</p>;
 
   return (
-    <div className="container mx-auto p-12 bg-zinc-200 rounded-xl">
+    <>
+    <div className="container  md:px-4 mx-12 flex flex-col items-center bg-zinc-200 rounded-lg">
+      <div className="p-4 ">
       {property.map((property:any)=> <div key={property._id}>
       <div className="flex flex-col justify-center md:flex-row md:space-x-6 ">
         
@@ -57,10 +88,12 @@ const Page = ({ params }: { params: { id: string } }) => {
           {/* <h3 className="mt-4 font-semibold">Description</h3> */}
           <p className="text-[1.2rem] mt-4 ">{property.description}</p>
           {/* <div className="flex items-center justify-center bg-red-200 px-6 py-2 rounded-xl "> */}
-          <p className="border font-bold text-[1rem] mt-4 flex  w-fit items-center justify-center bg-red- px-6 py-2 rounded-xl ">Bedrooms: {property.bedrooms}</p>
+          <p className="border font-bold text-[1rem] mt-4 flex  w-fit items-center justify-center bg-red- px-6 py-2 rounded-xl ">
+          <BedSingle />
+            Bedrooms: {property.bedrooms}</p>
             {/* </div> */}
           <h3 className="mt-4 font-semibold">Amenities</h3>
-          <div className="mt-2 flex flex-wrap gap-4">
+          <div className="mt-2 flex items-center flex-wrap gap-4">
             {property.amenities.map((amenity:any, index:any) => (
               <div className="border flex  items-center justify-center  px-6 py-2 rounded-xl ">
                 <Bath />
@@ -68,16 +101,31 @@ const Page = ({ params }: { params: { id: string } }) => {
               </div>
             ))}
           </div>
-          <Button className="mt-8 border text-white py-2 px-4 rounded">Book Now</Button>
+
+            <div className="flex mt-8 md:items-center items-start gap-4 md:flex-row flex-col mb-8">
+
+          <Link
+                href="/cart"
+                className="py-4 text-sm font-bold text-white uppercase bg-teal-500 rounded-sm px-14 hover:bg-teal-600"
+              >
+                Go to Cart
+              </Link>
+          <button onClick={handleAddToCart} className="py-4 text-sm font-bold text-white uppercase bg-teal-500 rounded-sm px-14 hover:bg-teal-600">
+          Add to cart
+
+          </button>
+          </div>
+
+
         </div>
-        <div className="md:w-1/2 mb-4 px-12">
+        <div className="md:w-1/2 mb-4 md:px-12 ">
         {/* <div className="grid gap-4 mb-8"> */}
             <Image
               src={property.images[0]}
               alt="Property main image"
               width={600}
               height={300}
-              className="rounded-xl object-cover w-full h-[18rem]"
+              className="rounded-lg object-cover w-full h-[18rem]"
             />
             <div className="grid grid-cols-4 gap-4 mt-4">
               {[1, 2, 3, 4].map((i) => (
@@ -87,7 +135,7 @@ const Page = ({ params }: { params: { id: string } }) => {
                   alt={`Property image`}
                   width={150}
                   height={100}
-                  className="rounded-xl object-cover w-full"
+                  className="rounded-lg object-cover w-full"
                 />
               ))}
             </div>
@@ -158,8 +206,16 @@ const Page = ({ params }: { params: { id: string } }) => {
       </div>
         </div>
         )}
+        </div>
+
+         
       
     </div>
+     <div>
+
+     <Footer/>
+    </div>
+    </>
   );
 };
 
