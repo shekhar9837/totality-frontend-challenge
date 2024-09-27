@@ -108,16 +108,16 @@ const Page = ({ params }: { params: { id: string } }) => {
                   className="rounded-lg object-cover w-full h-[18rem]"
                 />
                 <div className="grid grid-cols-4 gap-4 mt-4">
-                  {property.images.slice(1, 5).map((image, i) => (
-                    <Image
-                      key={i}
-                      src={image}
-                      alt={`Property image ${i}`}
-                      width={150}
-                      height={100}
-                      className="rounded-lg object-cover w-full"
-                    />
-                  ))}
+                {[1, 2, 3, 4].map((i) => (
+                <Image
+                  key={i}
+                  src={property.images[0]}
+                  alt={'Property'}
+                  width={150}
+                  height={100}
+                  className="rounded-lg object-cover w-full"
+                />
+              ))}
                 </div>
               </div>
             </div>
