@@ -75,7 +75,7 @@ const Footer = () => {
           </div>
   
           <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 lg:text-left">
-          Find your perfect property for rent! Whether you're looking for a cozy cabin in the woods, a luxurious villa with a pool, or anything in between, Totallity Rentals has you covered. Start your search today!
+          Find your perfect property for rent! Whether you&apos;re looking for a cozy cabin in the woods, a luxurious villa with a pool, or anything in between, Totallity Rentals has you covered. Start your search today!
           </p>
         </div>
   

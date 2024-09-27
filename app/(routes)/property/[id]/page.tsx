@@ -5,13 +5,10 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
-import { use } from "react";
+
 import { Bath, BedSingle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Property } from "@/models/Property";
 import { CartContext } from "@/context/CartContext";
 import toast from "react-hot-toast";
 import Footer from "@/components/Footer/Footer";
@@ -25,7 +22,6 @@ const Page = ({ params }: { params: { id: string } }) => {
   const [property, setProperty] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [cartItem, setCartItem] = useState([])
-  const [added, setaddedflag] = useState(false);
   const { addToCart} = useContext(CartContext);
 
 
@@ -53,7 +49,6 @@ const Page = ({ params }: { params: { id: string } }) => {
     if (cartItem.length > 0) {
       addToCart(cartItem[0]);  // Assuming `cartItem` is an array and you want to add the first property
       toast("Item added to cart");
-      setaddedflag(true);  // Optional: set a flag to show feedback
     }
   };
   
@@ -211,10 +206,7 @@ const Page = ({ params }: { params: { id: string } }) => {
          
       
     </div>
-     <div>
-
-     <Footer/>
-    </div>
+     
     </>
   );
 };

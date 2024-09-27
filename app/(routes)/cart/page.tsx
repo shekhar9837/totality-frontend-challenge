@@ -7,7 +7,7 @@ import Link from 'next/link';
 import React, { useContext } from 'react'
 
  const CartPage = () => {
-    const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } =
+    const { cartItems, addToCart, removeFromCart, clearCart } =
     useContext(CartContext);
 
 
@@ -47,13 +47,13 @@ import React, { useContext } from 'react'
     <div>
 
 {cartItems?.length > 0 && (
-        <section className="py-10">
+        <section className="py-10" >
           <div className="container max-w-screen-xl mx-auto px-4">
             <div className="flex flex-col md:flex-row gap-4">
               <main className="md:w-3/4">
                 <article className="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
                   {cartItems?.map((cartItem:any) => (
-                    <div>
+                    <div key={cartItem.id}>
                       <div className="flex flex-wrap lg:flex-row gap-5  mb-4">
                         <div className="w-full lg:w-2/5 xl:w-2/4">
                           <figure className="flex leading-5">

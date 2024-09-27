@@ -3,7 +3,6 @@
 import PropertyCard from '@/components/propertyCard/PropertyCard';
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
-import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 
 const FilterProperties = () => {
@@ -25,6 +24,7 @@ const FilterProperties = () => {
   useEffect(() => {
     // Fetch properties from the API
     const fetchProperties = async () => {
+      
       try {
         const res = await axios.get("/api/get-properties");
         const data = await res.data;

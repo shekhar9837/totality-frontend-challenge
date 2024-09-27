@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import PropertyCard from "@/components/propertyCard/PropertyCard";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { Divide } from "lucide-react";
 
 
 

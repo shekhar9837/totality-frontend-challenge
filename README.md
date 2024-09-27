@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Totality Frontend Challenge
 
-## Getting Started
+This project is a **property rental platform** built using Next.js and other modern web technologies. It features property listings, a booking management system, and a checkout process, all with responsive design. The platform allows users to browse properties, book them, and manage their bookings seamlessly.
 
-First, run the development server:
+## Challenge Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The challenge involves creating a property rental website with the following core features:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Property Listings**: Users can browse properties with images, descriptions, and prices, and use filters to refine their search.
+- **Booking Management**: Users can book properties, manage their bookings, and view the total cost in real-time.
+- **Checkout Process**: Users can finalize their booking by entering personal and payment details.
+- **Responsive Design**: The application is optimized for both desktop and mobile devices.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **React.js**: Core front-end framework.
+- **Next.js**: Server-side rendering and routing.
+- **Tailwind CSS**: Utility-first CSS framework for responsive and modern design.
+- **ShadCN UI**: For pre-built and customizable UI components.
+- **NextAuth.js**: Authentication system for user registration and login (Optional challenge).
+- **MongoDB**: Database to manage property and booking data.
+- **TypeScript**: Ensures type safety and better code management (optional).
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Property Listings
+- Display properties with images, titles, descriptions, prices, and a "Book Now" button.
+- Implement filters for sorting properties by:
+  - Location
+  - Price range
+  - Number of bedrooms
+  - Available amenities
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Booking Management
+- Users can book properties by clicking "Book Now."
+- A **Cart Section** displays booked properties with details (booking dates, total cost).
+- Users can increase, decrease, or remove properties from the cart.
+- Real-time updates of total cost and booking count.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 3. Checkout Process
+- A complete **checkout flow** where users provide:
+  - Contact information
+  - Payment details
+  - A final booking summary and total cost
 
-## Deploy on Vercel
+### 4. Responsive Design
+- The site works seamlessly on both desktop and mobile devices.
+- Layout optimized for multiple screen sizes, ensuring a consistent user experience.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Additional Features (Optional)
+- **User Authentication**: Login and registration for users, with session-based management.
+- **User Avatar**: Display logged-in user's name and avatar.
+- **Property Reviews**: Users can leave reviews for properties.
+- **Favorites List**: Users can save favorite properties for easy access later.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Approach
+
+- **Property Listings**: Property data is dynamically rendered on the page. Filtering logic is implemented to sort by multiple criteria.
+- **State Management**: Used React's `useState` and `useReducer` hooks to manage cart and booking information efficiently.
+- **Booking System**: Booking logic updates in real-time, calculating the total cost and number of properties in the cart.
+- **Checkout Process**: A multi-step checkout system collects user information and processes bookings.
+- **Responsive Design**: Tailwind CSS breakpoints are used to create layouts for mobile and desktop devices.
+- **Authentication**: NextAuth.js handles user registration, login, and session management.
+
+## Installation and Setup
+
+### Prerequisites
+
+- Node.js (v12 or higher)
+- MongoDB for data storage
+- Git
+
+### Steps
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/totality-frontend-challenge.git
+   ```bash
+   cd totality-frontend-challenge
+   ```bash
+   npm install
+   ```bash
+   npm run dev
+

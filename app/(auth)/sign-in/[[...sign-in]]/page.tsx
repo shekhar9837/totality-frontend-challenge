@@ -8,12 +8,12 @@ export default function Page(){
 <section className="">
   <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
     <aside className="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
-      <img
+      <Image
         alt=""
         src="/images/photo11.jpg"
         className="absolute inset-0 h-full w-full object-cover"
-        // width={2560}
-        // height={1440}
+        width={2560}
+        height={1440}
       />
     </aside>
 

@@ -1,11 +1,9 @@
 'use client'
-import Home from '@/app/page'
-import { SignedIn, SignedOut, SignInButton, useAuth, UserButton, useUser  } from '@clerk/nextjs'
-import { User } from '@clerk/nextjs/server'
+import {  UserButton, useUser  } from '@clerk/nextjs'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React, { useContext, useEffect, useState } from 'react'
-import { CarTaxiFront, Menu, Plus, ShoppingCart, X } from 'lucide-react'
+import React, { useContext, useState } from 'react'
+import {  Menu, Plus, ShoppingCart, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { CartContext } from '@/context/CartContext'
 
@@ -13,7 +11,7 @@ export const Navbar = () => {
   const {user, isSignedIn} = useUser()
   const [isOpen, setIsOpen]= useState(false)
   const path = usePathname()
-  const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } =
+  const { cartItems } =
   useContext(CartContext);
 
 
