@@ -25,7 +25,6 @@ type Property = {
 };
 
 
-        //@ts-ignore
 const Page = ({ params }: { params: { id: string } }) => {
   // const {user} = useUser()
   // console.log(user)
@@ -44,7 +43,7 @@ const Page = ({ params }: { params: { id: string } }) => {
         const res = await axios.get("/api/get-properties");
         const data = await res.data;
         //@ts-ignore
-        const filtered = await data.filter((data) => data._id === params.id);
+        const filtered = await data.filter((data:SomeType) => data._id === params.id);
         console.log(filtered);
         setProperty(filtered);
         setCartItem(filtered);
@@ -55,7 +54,7 @@ const Page = ({ params }: { params: { id: string } }) => {
       }
     };
     fetchProperties();
-  }, []);
+  }, [params.id]);
 
 
   const handleAddToCart = () => {
@@ -103,7 +102,7 @@ const Page = ({ params }: { params: { id: string } }) => {
           <h3 className="mt-4 font-semibold">Amenities</h3>
           <div className="mt-2 flex items-center flex-wrap gap-4">
             {property.amenities.map((amenity:any, index:any) => (
-              <div className="border flex  items-center justify-center  px-6 py-2 rounded-xl ">
+              <div key={amenity.id} className="border flex  items-center justify-center  px-6 py-2 rounded-xl ">
                 <Bath />
                 <p className="font-bold" key={index}>{amenity}</p>
               </div>
