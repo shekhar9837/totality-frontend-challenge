@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { CartContext } from '@/context/CartContext'
 
 export const Navbar = () => {
-  const {user, isSignedIn} = useUser()
+  const { isSignedIn} = useUser()
   const [isOpen, setIsOpen]= useState(false)
   const path = usePathname()
   const { cartItems } =

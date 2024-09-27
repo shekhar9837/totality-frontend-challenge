@@ -32,7 +32,7 @@ export default function Properties() {
       }
     };
     fetchProperties();
-  }, []);
+  }, [totalPages]);
 
 
   const handlePageChange = (page: number) => {
@@ -60,7 +60,7 @@ export default function Properties() {
 
       <h1 className="text-[2rem] font-extrabold mb-2 md:text-center text-start">Explore exclusive places</h1>
       <p className="text-[0.9rem] text-gray-500 font-medium md:text-center text-start">
-      Find your perfect property for rent! Whether you're looking for a cozy cabin in the woods, a luxurious villa with a pool, or anything in between, Totallity Rentals has you covered. Start your search today!
+      Find your perfect property for rent! Whether you&apos;re looking for a cozy cabin in the woods, a luxurious villa with a pool, or anything in between, Totallity Rentals has you covered. Start your search today!
       </p>
       </header>
       <div className="grid md:grid-cols-3 sm:grid-cols-1 2xl:grid-cols-4  gap-5">
