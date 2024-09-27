@@ -4,7 +4,7 @@ import Properties from "./_components/properties";
 
 export default function Home() {
   return (
-    <div className="px-12 ">
+    <div className="px-8 ">
    
    <HomePage/>
    <Properties/>

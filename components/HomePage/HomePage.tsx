@@ -7,7 +7,7 @@ import { MoveUpRight } from 'lucide-react';
 
 export const HomePage = () => {
   return (
-    <div className="  flex flex-col items-start justify-center w-full md:h-screen  md:px-6 px-0 py-12   md:gap-20 md:flex-row bg-zinc-200  rounded-lg shadow-lg">
+    <div className="  flex flex-col items-start justify-center w-full md:h-screen  md:px-6 px-0 py-12   md:gap-20 md:flex-row bg-zinc-200  rounded-lg ">
       {/* Left Side - Text and Input */}
       <div className="flex flex-col md:items-start md:px-0  px-4   ">
         <h1 className="md:text-5xl text-[2rem] md:hidden block   font-extrabold uppercase leading-none">Inspiring Locations to Lodge</h1>

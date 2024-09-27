@@ -61,8 +61,8 @@ const Page = ({ params }: { params: { id: string } }) => {
   if (property.length === 0) return <p>No property found.</p>;
 
   return (
-    <div className="container md:px-4 mx-12 flex flex-col items-center bg-zinc-200 rounded-lg">
-      <div className="p-4">
+    <div className="   mx-4">
+      <div className="p-4 flex flex-col items-center bg-zinc-200 rounded-lg">
         {property.map((property: Property) => (
           <div key={property._id}>
             <div className="flex flex-col justify-center md:flex-row md:space-x-6">
